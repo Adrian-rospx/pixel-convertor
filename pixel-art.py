@@ -16,7 +16,24 @@ def pixelate(image_path: str, pixel_size = 8):
 
     # show the result:
     rescaled.show()
-    rescaled.save("images/pixelated.png")
+
+    # add a suffix to the pixelated image
+    dot_index = image_path.index(".")
+    newpath = image_path[:dot_index] + "_pixel.png"
+    print("saved as:")
+    print(newpath)
+
+    rescaled.save(newpath)
 
 # usage:
-pixelate("Images/jet_fighter.png", 16)
+def main():
+    path = input("Enter the name of the file you want to pixelate: ")
+    path = "images/"+ path
+
+    pixel_size = int(input("Enter the pixel size you want: "))
+
+    pixelate(path, pixel_size)
+
+if __name__ == "__main__":
+    main()
+

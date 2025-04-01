@@ -8,7 +8,7 @@ def pixelate(image_path: str, pixel_size = 8):
     img = Image.open(image_path, 'r')
 
     # resize and make the image smaller
-    smaller: Image.Image = img.resize(img.width // pixel_size, img.height // pixel_size, 
+    smaller: Image.Image = img.resize((img.width // pixel_size, img.height // pixel_size), 
                          resample = Image.Resampling.NEAREST)
     
     # rescale back to original size
@@ -18,3 +18,5 @@ def pixelate(image_path: str, pixel_size = 8):
     rescaled.show()
     rescaled.save("images/pixelated.png")
 
+# usage:
+pixelate("Images/jet_fighter.png", 16)

@@ -1,4 +1,3 @@
-# Python image to pixel art converter
 # using the Pillow library
 from PIL import Image
 
@@ -24,16 +23,3 @@ def pixelate(image_path: str, pixel_size = 8):
     print(newpath)
 
     rescaled.save(newpath)
-
-# usage:
-def main():
-    path = input("Enter the name of the file you want to pixelate: ")
-    path = "images/"+ path
-
-    pixel_size = int(input("Enter the pixel size you want: "))
-
-    pixelate(path, pixel_size)
-
-if __name__ == "__main__":
-    main()
-

@@ -8,6 +8,16 @@ def minimise(image: Image.Image, pixel_size) -> Image.Image:
                          resample = Image.Resampling.NEAREST)
     return small
     
+# generate the new image path and type it's new name
+def newPath(image_path: str):
+    dot_index = image_path.index(".")
+    new_path = image_path[:dot_index] + "_pixel.png"
+
+    print("saved as:")
+    print(new_path)
+
+    return new_path
+
 
 # define a pixelate function to setup functionality
 def pixelate(image_path: str, pixel_size = 8):
@@ -23,10 +33,7 @@ def pixelate(image_path: str, pixel_size = 8):
     # show the result:
     rescaled.show()
 
-    # add a suffix to the pixelated image
-    dot_index = image_path.index(".")
-    newpath = image_path[:dot_index] + "_pixel.png"
-    print("saved as:")
-    print(newpath)
+    # Setup the new image path
+    new_path = newPath(image_path)
 
-    rescaled.save(newpath)
+    rescaled.save(new_path)

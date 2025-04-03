@@ -1,17 +1,24 @@
 # using the Pillow library
 from PIL import Image
 
+# create a small image with pixels
+def minimise(image: Image.Image, pixel_size) -> Image.Image:
+    # resize and make the image smaller
+    small: Image.Image = image.resize((image.width // pixel_size, image.height // pixel_size), 
+                         resample = Image.Resampling.NEAREST)
+    return small
+    
+
 # define a pixelate function to setup functionality
 def pixelate(image_path: str, pixel_size = 8):
     # initialising the image
     img = Image.open(image_path, 'r')
 
-    # resize and make the image smaller
-    smaller: Image.Image = img.resize((img.width // pixel_size, img.height // pixel_size), 
-                         resample = Image.Resampling.NEAREST)
-    
+    # make the image smaller
+    small = minimise(image_path, pixel_size)
+
     # rescale back to original size
-    rescaled: Image.Image = smaller.resize(img.size, resample = Image.Resampling.NEAREST)
+    rescaled: Image.Image = small.resize(img.size, resample = Image.Resampling.NEAREST)
 
     # show the result:
     rescaled.show()

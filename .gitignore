@@ -1,2 +1,6 @@
+# image files
 *.jpg
 *.png
+
+# cache files
+*.pyc

@@ -18,14 +18,13 @@ def newPath(image_path: str):
 
     return new_path
 
-
 # define a pixelate function to setup functionality
 def pixelate(image_path: str, pixel_size = 8):
     # initialising the image
     img = Image.open(image_path, 'r')
 
     # make the image smaller
-    small = minimise(image_path, pixel_size)
+    small = minimise(img, pixel_size)
 
     # rescale back to original size
     rescaled: Image.Image = small.resize(img.size, resample = Image.Resampling.NEAREST)

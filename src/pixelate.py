@@ -17,10 +17,10 @@ def pixelate(image_path: str, pixel_size = 8) -> Image.Image:
     img = Image.open(image_path, 'r')
 
     # make the image smaller
-    small = minimise(img, pixel_size)
+    small: Image.Image = minimise(img, pixel_size)
     # add outline to PNGs
     if suffix(image_path) == ".png":
-        small: Image.Image = add_outline(small)
+        small = add_outline(small)
 
     # rescale back to original size
     rescaled: Image.Image = small.resize(img.size, resample = Image.Resampling.NEAREST)

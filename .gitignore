@@ -1,6 +1,10 @@
 # image files
 *.jpg
-*.png
+*.png 
+
+# exceptions for examples
+!race_car.png
+!dog.png
 
 # cache files
 *.pyc

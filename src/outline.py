@@ -1,7 +1,7 @@
 from PIL import Image
 
 def is_transparent_px(pixel: tuple) -> bool:
-    if pixel[3] == 0:
+    if pixel[3] < 160:
         return True
     else:
         return False

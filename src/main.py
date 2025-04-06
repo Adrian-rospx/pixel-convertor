@@ -1,5 +1,5 @@
 # Python image to pixel art converter
-from pixelate import pixelate
+from pixelate import pixelate, save_img
 from imgPath import get_image_path
 
 # usage:
@@ -11,6 +11,7 @@ def main():
     pixel_size = int(input("Enter the pixel size you want: "))
 
     img = pixelate(path, pixel_size)
+    save_img(img, path)
 
 if __name__ == "__main__":
     main()

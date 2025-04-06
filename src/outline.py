@@ -45,6 +45,7 @@ def create_outline(src_img: Image.Image) -> Image:
 
     return outline_img
     
+# add an outline over the transparent image
 def add_outline(src_img: Image.Image) -> Image:
     outline = create_outline(src_img)
     # composite the outline onto the original image

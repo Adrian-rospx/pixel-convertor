@@ -1,5 +1,6 @@
 # using the Pillow library
 from PIL import Image
+
 from outline import add_outline
 
 # create a small image with pixels
@@ -9,18 +10,8 @@ def minimise(image: Image.Image, pixel_size) -> Image.Image:
                          resample = Image.Resampling.NEAREST)
     return small
     
-# generate the new image path and type it's new name
-def newPath(image_path: str):
-    dot_index = image_path.index(".")
-    new_path = image_path[:dot_index] + "_pixel.png"
-
-    print("saved as:")
-    print(new_path)
-
-    return new_path
-
 # define a pixelate function to setup functionality
-def pixelate(image_path: str, pixel_size = 8):
+def pixelate(image_path: str, pixel_size = 8) -> Image.Image:
     # initialising the image
     img = Image.open(image_path, 'r')
 
@@ -35,8 +26,5 @@ def pixelate(image_path: str, pixel_size = 8):
 
     # show the result:
     rescaled.show()
-
-    # Setup the new image path
-    new_path = newPath(image_path)
-
-    rescaled.save(new_path)
+    # return the rescaled image
+    return rescaled

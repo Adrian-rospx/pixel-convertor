@@ -45,4 +45,9 @@ def create_outline(src_img: Image.Image) -> Image:
 
     return outline_img
     
+def add_outline(src_img: Image.Image) -> Image:
+    outline = create_outline(src_img)
+    # composite the outline onto the original image
+    combined = Image.alpha_composite(src_img, outline)
 
+    return combined

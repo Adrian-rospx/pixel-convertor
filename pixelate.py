@@ -1,6 +1,6 @@
 # using the Pillow library
 from PIL import Image
-from outline import create_outline
+from outline import add_outline
 
 # create a small image with pixels
 def minimise(image: Image.Image, pixel_size) -> Image.Image:
@@ -27,8 +27,8 @@ def pixelate(image_path: str, pixel_size = 8):
     # make the image smaller
     small = minimise(img, pixel_size)
     # show small image outline
-    outline: Image.Image = create_outline(small)
-    outline.show()
+    small: Image.Image = add_outline(small)
+    small.show()
 
     # rescale back to original size
     rescaled: Image.Image = small.resize(img.size, resample = Image.Resampling.NEAREST)
